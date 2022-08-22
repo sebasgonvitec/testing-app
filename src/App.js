@@ -46,6 +46,12 @@ function App() {
 
   return (
     <div>
+      <div>
+        Sebastian González <br></br>
+        Andreína Sanánez <br></br>
+        Karla Mondragón <br></br>
+        <h2 id="titleDoc"> CSV File Reader and Converter </h2> 
+      </div>
 
       {/* File Uploader */}
       <input
@@ -57,9 +63,10 @@ function App() {
       />
       <br />
       <br />
-
+      <div className="tables">
       {/* Original Table */}
-      <table>
+      <table id="tablaOriginal">
+        <caption> Original Table </caption>
       <thead>
         <tr>
           {tableRows.map((rows, index) => {
@@ -81,7 +88,8 @@ function App() {
       </table>
 
       {/*Changed Table */}
-      <table>
+      <table id="tablaNueva">
+        <caption> New Table </caption>
       <thead>
         <tr>
           {tableRows.map((rows, index) => {
@@ -101,6 +109,7 @@ function App() {
         })}
       </tbody>
       </table>
+      </div>
     </div> 
   );
 }

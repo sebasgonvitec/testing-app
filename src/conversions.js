@@ -20,7 +20,10 @@ function grade_to_letter(grade) {
       letter = 'D+';
     } else if(grade >= 64) {
       letter = 'D';
+    } else if(grade < 64) {
+      letter = 'F';
     }
+
     return letter;
   }
   
