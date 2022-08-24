@@ -1,20 +1,20 @@
-import {grade_to_letter, date_to_american, remove_surname, format_line} from './conversions'
+import {grade_conversion, date_swap, remove_surname, format_line} from './conversions'
 
 describe('Individual functions', () => {
 
   test('grade conversion', () => {
-    expect(grade_to_letter(93)).toBe('A');
-    expect(grade_to_letter(83)).toBe('B');
-    expect(grade_to_letter(75)).toBe('C');
-    expect(grade_to_letter(71)).toBe('C-');
+    expect(grade_conversion(93)).toBe('A');
+    expect(grade_conversion(83)).toBe('B');
+    expect(grade_conversion(75)).toBe('C');
+    expect(grade_conversion(71)).toBe('C-');
 
-    expect(grade_to_letter(30)).toBe('E');
+    expect(grade_conversion(30)).toBe('E');
   });
 
   test('date conversion', () => {
-    expect(date_to_american('24/06/2021')).toBe('06/24/2021');
-    expect(date_to_american('18/12/2021')).toBe('12/18/2021');
-    expect(date_to_american('12/15/2022')).toBe('15/12/2022');
+    expect(date_swap('24/06/2021')).toBe('06/24/2021');
+    expect(date_swap('18/12/2021')).toBe('12/18/2021');
+    expect(date_swap('12/15/2022')).toBe('15/12/2022');
   });
 
   test('renove surname', () => {

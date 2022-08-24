@@ -1,4 +1,4 @@
-function grade_to_letter(grade) {
+function grade_conversion(grade) {
     let letter = 'E';
     if(grade >= 93) {
       letter = 'A';
@@ -27,7 +27,7 @@ function grade_to_letter(grade) {
     return letter;
   }
   
-  function date_to_american(date) {
+  function date_swap(date) {
     const [day, month, year] = date.split('/');
     return [month, day, year].join('/');
   }
@@ -42,10 +42,10 @@ function grade_to_letter(grade) {
       id,
       remove_surname(name),
       mat + "@tec.mx",
-      date_to_american(date),
-      grade_to_letter(grade)
+      date_swap(date),
+      grade_conversion(grade)
     ];
     return newLine;
   }
   
-  export {grade_to_letter, date_to_american, remove_surname, format_line};
+  export {grade_conversion, date_swap, remove_surname, format_line};
