@@ -1,7 +1,17 @@
+/*
+App to convert student data to USA format
+
+Sebastian Gonzalez Villacorta
+Andreina Isabel Sananez Rico
+Karla Valeria Mondragon Rosas
+
+25-08-2022
+*/
+
 import "./App.css";
 import { useState } from "react";
-import Papa from "papaparse";
-import { format_line } from './conversions';
+import FileUpload from "./components/FileUploader";
+import DataDisplay from "./components/DataDisplay";
 
 function App() {
   
@@ -14,36 +24,6 @@ function App() {
   //State to store the converted values
   const [changedValues, setChangedValues] = useState([]);
 
-  const changeHandler = (event) => {
-    // Passing file data (event.target.files[0]) to parse using Papa.parse
-    Papa.parse(event.target.files[0], {
-      header: true,
-      skipEmptyLines: true,
-      complete: function (results) {
-        const rowsArray = [];
-        const valuesArray = [];
-        const changedValuesArray = [];
-
-        // Iterating data to get column name and their values
-        results.data.map((element) => {
-          rowsArray.push(Object.keys(element)); //store names
-          valuesArray.push(Object.values(element)); //store values
-          changedValuesArray.push(format_line(Object.values(element)));
-          return null;
-        });
-
-        // Set Filtered Column Names
-        setTableRows(rowsArray[0]);
-
-        // Set Filtered Values
-        setValues(valuesArray);
-
-        //Set converted data
-        setChangedValues(changedValuesArray);
-      },
-    });
-  };
-
   return (
     <div>
       <div>
@@ -52,65 +32,20 @@ function App() {
         Karla Mondragón <br></br>
         <h2 id="titleDoc"> CSV File Reader and Converter </h2> 
       </div>
-
-      {/* File Uploader */}
-      <input
-        type="file"
-        name="file"
-        onChange={changeHandler}
-        accept=".csv"
-        style={{ display: "block", margin: "10px auto" }}
+      {/*File Upload*/}
+      <FileUpload
+        setTableRows={setTableRows}
+        setValues={setValues}
+        setChangedValues={setChangedValues}
       />
-      <br />
-      <br />
-      <div className="tables">
-      {/* Original Table */}
-      <table id="tablaOriginal">
-        <caption> Original Table </caption>
-      <thead>
-        <tr>
-          {tableRows.map((rows, index) => {
-            return <th key={index}>{rows}</th>; })}
-        </tr>
-      </thead>
-
-      <tbody>
-        {values.map((value, index) => {
-          return (
-            <tr key={index}>
-              {value.map((val, i) => {
-                return <td key={i}>{val}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-      </table>
-
-      {/*Changed Table */}
-      <table id="tablaNueva">
-        <caption> New Table </caption>
-      <thead>
-        <tr>
-          {tableRows.map((rows, index) => {
-            return <th key={index}>{rows}</th>; })}
-        </tr>
-      </thead>
-
-      <tbody>
-        {changedValues.map((changedValue, index) => {
-          return (
-            <tr key={index}>
-              {changedValue.map((val, i) => {
-                return <td key={i}>{val}</td>;
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-      </table>
-      </div>
+      {/*Display Tables*/}
+      <DataDisplay
+        tableRows={tableRows}
+        values={values}
+        changedValues={changedValues}
+        />
     </div> 
+    
   );
 }
 

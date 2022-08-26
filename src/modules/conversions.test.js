@@ -7,7 +7,6 @@ describe('Individual functions', () => {
     expect(grade_conversion(83)).toBe('B');
     expect(grade_conversion(75)).toBe('C');
     expect(grade_conversion(71)).toBe('C-');
-
     expect(grade_conversion(30)).toBe('E');
   });
 
@@ -17,7 +16,7 @@ describe('Individual functions', () => {
     expect(date_swap('12/15/2022')).toBe('15/12/2022');
   });
 
-  test('renove surname', () => {
+  test('remove surname', () => {
     expect(remove_surname('Loreto Sepúlveda Torres')).toBe('Loreto Sepúlveda');
     expect(remove_surname('Benito Ramos Félix')).toBe('Benito Ramos');
     expect(remove_surname('Gloria Mata Vázquez')).toBe('Gloria Mata');

@@ -21,7 +21,7 @@ function grade_conversion(grade) {
     } else if(grade >= 64) {
       letter = 'D';
     } else if(grade < 64) {
-      letter = 'F';
+      letter = 'E';
     }
 
     return letter;
