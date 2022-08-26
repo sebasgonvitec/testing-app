@@ -19,7 +19,7 @@ function DataDisplay(props){
                     <DataTable
                     tableRows={props.tableRows}
                     values={props.values}
-                    id='tableOriginal'
+                    id='tablaOriginal'
                     />
                 </td>
                 <td>
@@ -28,7 +28,7 @@ function DataDisplay(props){
                     <DataTable
                     tableRows={props.tableRows}
                     values={props.changedValues}
-                    id='tableResults'
+                    id='tablaResults'
                     />
                 </td>
                 </tr>

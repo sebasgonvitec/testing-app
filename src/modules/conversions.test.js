@@ -7,7 +7,7 @@ describe('Individual functions', () => {
     expect(grade_conversion(83)).toBe('B');
     expect(grade_conversion(75)).toBe('C');
     expect(grade_conversion(71)).toBe('C-');
-    expect(grade_conversion(30)).toBe('E');
+    expect(grade_conversion(30)).toBe('F');
   });
 
   test('date conversion', () => {

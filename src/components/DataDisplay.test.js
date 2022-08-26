@@ -11,15 +11,14 @@ describe('DataDisplay Component', () => {
 
   const table1Rows = ['HeadA', 'HeadB'];
   const values1 = [['a', '1'], ['b', '2']];
-  //const table2Rows = ['HeadX', 'HeadY'];
   const values2 = [['m', '18'], ['n', '19']];
   render(<DataDisplay
     tableRows={table1Rows}
     values={values1}
-    newValues={values2}
+    changedValues={values2}
   />);
-  const table1 = screen.getByTestId('tableOriginal');
-  const table2 = screen.getByTestId('tableResults');
+  const table1 = screen.getByTestId('tablaOriginal');
+  const table2 = screen.getByTestId('tablaResults');
 
   // Check if the table is displayed
   test('Tables render', () => {
